@@ -12,4 +12,7 @@ export class ResumePreviewComponent implements OnInit {
   ngOnInit() {
   }
 
+  download(){
+    alert("download");
+  }
 }
