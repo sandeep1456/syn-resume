@@ -1,0 +1,69 @@
+body {
+  background-color: #EEEEEE;
+}
+
+
+.cv-wrapper {
+    background-color: #FFFFFF;
+    width: 816px;
+    min-height: 1056px;
+    position: relative;
+    white-space: normal;
+    border: 0;
+    margin: 30px auto;
+    box-shadow: 0 0 0 1px #D1D1D1, 0 0 8px 3px #CCCCCC;
+}
+
+.page {
+  padding: 20px 100px 50px 100px;
+}
+
+.header{
+  text-align: center;
+  font-size: 35px;
+  padding-bottom: 30px;
+}
+
+.date{
+  text-align: right;
+  font-weight: bold;
+}
+td{
+ vertical-align: top;
+}
+.content td{
+  padding: 5px 10px 5px 0;
+}
+
+.bullet {
+  font-weight: bold;
+}
+
+.exp-details, .edu-details {
+  margin-top: 20px;
+}
+
+.exp-details td {
+  padding: 2px;
+}
+
+td.bullet {
+  width: 180px;
+}
+
+.section {
+  margin-top: 40px;
+}
+
+.edu-details th {
+  text-align: left;
+}
+
+.edu-details {
+  border-collapse: collapse;
+}
+
+.edu-details th, .edu-details td {
+  border: 1px solid #AAAAAA;
+  padding: 2px 5px;
+}
