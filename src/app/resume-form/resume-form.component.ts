@@ -22,4 +22,11 @@ export class ResumeFormComponent implements OnInit {
 
   }
 
+  deleteEduDetail(index) {
+    this.eduDetails.splice(index, 1);
+  }
+
+  addEduDetail() {
+    this.eduDetails.push({cn:"", in:"", yp:""});
+  }
 }

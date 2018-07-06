@@ -111,3 +111,20 @@ input, textarea {
 .bullet-val textarea {
   width: calc(100% - 50px);
 }
+
+.edu-details-footer{
+  text-align: right;
+  margin-top: 5px;
+}
+
+.yp-input {
+  width: 80px;
+}
+
+span.action{
+  font-family: Arial;
+  cursor:pointer;
+  color: rgb(0, 97, 213);
+  font-size: 12px;
+  font-weight: bold;
+}

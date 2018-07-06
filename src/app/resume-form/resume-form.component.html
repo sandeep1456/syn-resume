@@ -95,6 +95,7 @@
             <th>Course</th>
             <th>Institute</th>
             <th>Year of Passing</th>
+            <th>Actions</th>
           </tr>
         </thead>
 
@@ -103,11 +104,12 @@
             <td>{{1+i}}</td>
             <td><input type='text' value='{{ed.cn}}'/></td>
             <td><input type='text' value='{{ed.in}}' /></td>
-            <td><input type='text' value='{{ed.yp}}' /></td>
+            <td><input class="yp-input" type='text' value='{{ed.yp}}' /></td>
+            <td><span class="action" (click)=deleteEduDetail(i)>Delete</span></td>
           </tr>
-
         </tbody>
       </table>
+      <div class="edu-details-footer"><span class="action" (click)=addEduDetail()>Add</span></div>
 
       <table class='content section'>
         <tbody>
