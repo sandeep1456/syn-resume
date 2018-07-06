@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumeFormComponent implements OnInit {
 
+  updatedOnDate = new Date().toDateString();
+
+  eduDetails = [
+    {cn:"SSC", in:"Modern High School", yp:"2002"},
+    {cn:"Diploma", in:"AISSMS Polytechnic", yp:"2005"}
+  ];
   constructor() { }
 
   ngOnInit() {
+  }
+
+  save() {
+
   }
 
 }

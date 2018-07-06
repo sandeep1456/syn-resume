@@ -47,10 +47,19 @@ td{
   padding: 2px;
 }
 
+.content,
+.edu-details,
+.exp-details {
+  width: 100%;
+}
+
 td.bullet {
   width: 180px;
 }
 
+td.bullet-val {
+  width: calc(100% - 180px);
+}
 .section {
   margin-top: 40px;
 }
@@ -89,4 +98,16 @@ td.bullet {
   font-weight: 400;
   margin-left: 10px;
   text-decoration: none;
+}
+
+
+/* Resume Edit Form */
+input, textarea {
+  border-width: 0 0 1px 0;
+  border-color: #CCC;
+}
+
+.bullet-val input,
+.bullet-val textarea {
+  width: calc(100% - 50px);
 }

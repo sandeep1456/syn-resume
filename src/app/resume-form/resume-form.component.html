@@ -1,6 +1,6 @@
 <div class='cv-wrapper'>
   <div class='actions'>
-    <button (click)="update()">Update</button>
+    <button (click)="save()">Save</button>
   </div>
   <div class='page'>
     <div class='header'>
@@ -8,7 +8,7 @@
       <div>Curriculum Vitae</div>
     </div>
     <div class='content-wrapper'>
-      <div class='date'>Date: </div>
+      <div class='date'>Date: {{updatedOnDate}}</div>
 
       <table class='content'>
         <tbody>
@@ -46,7 +46,7 @@
           </tr>
           <tr>
             <td class='bullet'>COMPONENTS/TOOLS:</td>
-            <td class='bullet-val'><input type='text' /></td>
+            <td class='bullet-val'><textarea></textarea></td>
           </tr>
         </tbody>
       </table>
@@ -98,12 +98,12 @@
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td><input type='text' /></td>
-            <td><input type='text' /></td>
-            <td><input type='text' /></td>
+        <tbody >
+          <tr *ngFor="let ed of eduDetails; let i = index;">
+            <td>{{1+i}}</td>
+            <td><input type='text' value='{{ed.cn}}'/></td>
+            <td><input type='text' value='{{ed.in}}' /></td>
+            <td><input type='text' value='{{ed.yp}}' /></td>
           </tr>
 
         </tbody>
