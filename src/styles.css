@@ -112,7 +112,8 @@ input, textarea {
   width: calc(100% - 50px);
 }
 
-.edu-details-footer{
+.edu-details-footer,
+.work-details-footer {
   text-align: right;
   margin-top: 5px;
 }

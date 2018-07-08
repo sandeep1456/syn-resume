@@ -10,115 +10,124 @@
     <div class='content-wrapper'>
       <div class='date'>Date: {{updatedOnDate}}</div>
 
-      <table class='content'>
-        <tbody>
-          <tr>
-            <td class='bullet'>EMPLOYEE ID:</td>
-            <td class='bullet-val'><input type='text' /></td>
-          </tr>
-          <tr>
-            <td class='bullet'>NAME:</td>
-            <td class='bullet-val'><input type='text' /></td>
-          </tr>
-          <tr>
-            <td class='bullet'>EMAIL ID:</td>
-            <td class='bullet-val'><input type='text' /></td>
-          </tr>
-          <tr>
-            <td class='bullet'>TOTAL EXPERIENCE:</td>
-            <td class='bullet-val'><input type='text' /> Years</td>
-          </tr>
-          <tr>
-            <td class='bullet'>TECHNICAL SKILLS:</td>
-            <td class='bullet-val'><input type='text' /></td>
-          </tr>
-          <tr>
-            <td class='bullet'>LANGUAGES:</td>
-            <td class='bullet-val'><input type='text' /></td>
-          </tr>
-          <tr>
-            <td class='bullet'>OPERATING SYSTEMS:</td>
-            <td class='bullet-val'><input type='text' /></td>
-          </tr>
-          <tr>
-            <td class='bullet'>DATABASES:</td>
-            <td class='bullet-val'><input type='text' /></td>
-          </tr>
-          <tr>
-            <td class='bullet'>COMPONENTS/TOOLS:</td>
-            <td class='bullet-val'><textarea></textarea></td>
-          </tr>
-        </tbody>
-      </table>
+<p>Form value: {{ resumeForm.value | json }}</p>
+<p>Form status: {{ resumeForm.status | json }}</p>
 
-      <div class='bullet section'>EXPERIENCE DETAILS:</div>
-      <table class='exp-details'>
-        <tbody>
-          <tr>
-            <td class='bullet'>Company:</td>
-            <td class='bullet-val'><input type='text' /></td>
-          </tr>
-          <tr>
-            <td class='bullet'>Project:</td>
-            <td class='bullet-val'><input type='text' /></td>
-          </tr>
-          <tr>
-            <td class='bullet'>Technology/Tools used:</td>
-            <td class='bullet-val'><input type='text' /></td>
-          </tr>
-          <tr>
-            <td class='bullet'>Duration:</td>
-            <td class='bullet-val'><input type='text' /> years</td>
-          </tr>
-          <tr>
-            <td class='bullet'>Role/Designation:</td>
-            <td class='bullet-val'><input type='text' /></td>
-          </tr>
-          <tr>
-            <td class='bullet'>Brief Profile:</td>
-            <td class='bullet-val'><textarea></textarea></td>
-          </tr>
-          <tr>
-            <td class='bullet'>Responsibility:</td>
-            <td class='bullet-val'><textarea></textarea></td>
-          </tr>
-        </tbody>
-      </table>
+      <form [formGroup]="resumeForm">
+        <table class='content'>
+          <tbody>
+            <tr>
+              <td class='bullet'>EMPLOYEE ID:</td>
+              <td class='bullet-val'><input type='text' formControlName="empId"/></td>
+            </tr>
+            <tr>
+              <td class='bullet'>NAME:</td>
+              <td class='bullet-val'><input type='text' formControlName="name" /></td>
+            </tr>
+            <tr>
+              <td class='bullet'>EMAIL ID:</td>
+              <td class='bullet-val'><input type='text' formControlName="email"/></td>
+            </tr>
+            <tr>
+              <td class='bullet'>TOTAL EXPERIENCE:</td>
+              <td class='bullet-val'><input type='text' formControlName="texp"/> Years</td>
+            </tr>
+            <tr>
+              <td class='bullet'>TECHNICAL SKILLS:</td>
+              <td class='bullet-val'><input type='text' formControlName="skills"/></td>
+            </tr>
+            <tr>
+              <td class='bullet'>LANGUAGES:</td>
+              <td class='bullet-val'><input type='text' formControlName="lang"/></td>
+            </tr>
+            <tr>
+              <td class='bullet'>OPERATING SYSTEMS:</td>
+              <td class='bullet-val'><input type='text' formControlName="os" /></td>
+            </tr>
+            <tr>
+              <td class='bullet'>DATABASES:</td>
+              <td class='bullet-val'><input type='text' formControlName="dbs"/></td>
+            </tr>
+            <tr>
+              <td class='bullet'>COMPONENTS/TOOLS:</td>
+              <td class='bullet-val'><textarea formControlName="tools"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
 
+        <div class='bullet section'>EXPERIENCE DETAILS:</div>
 
+        <div formArrayName="workDetails">
+          <table class='exp-details' *ngFor="let wd of workDetails.controls; let i=index" [formGroupName]="i">
+            <tbody>
+              <tr>
+                <td class='bullet'>Company:</td>
+                <td class='bullet-val'><input type='text' formControlName="cn"/></td>
+              </tr>
+              <tr>
+                <td class='bullet'>Project:</td>
+                <td class='bullet-val'><input type='text' formControlName="pn" /></td>
+              </tr>
+              <tr>
+                <td class='bullet'>Technology/Tools used:</td>
+                <td class='bullet-val'><input type='text'  formControlName="tu"/></td>
+              </tr>
+              <tr>
+                <td class='bullet'>Duration:</td>
+                <td class='bullet-val'><input type='text' formControlName="dur" /> years</td>
+              </tr>
+              <tr>
+                <td class='bullet'>Role/Designation:</td>
+                <td class='bullet-val'><input type='text' formControlName="role" /></td>
+              </tr>
+              <tr>
+                <td class='bullet'>Brief Profile:</td>
+                <td class='bullet-val'><textarea formControlName="bp"></textarea></td>
+              </tr>
+              <tr>
+                <td class='bullet'>Responsibility:</td>
+                <td class='bullet-val'><textarea  formControlName="rsp"></textarea></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="work-details-footer"><span class="action" (click)=addworkDetail()>Add Work Experience</span></div>
 
-      <div class='bullet section'>EDUCATIONAL QUALIFICATION:</div>
-      <table class='edu-details'>
-        <thead>
-          <tr>
-            <th>S.No.</th>
-            <th>Course</th>
-            <th>Institute</th>
-            <th>Year of Passing</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
+        <div class='bullet section'>EDUCATIONAL QUALIFICATION:</div>
+        <table class='edu-details'>
+          <thead>
+            <tr>
+              <th>S.No.</th>
+              <th>Course</th>
+              <th>Institute</th>
+              <th>Year of Passing</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
 
-        <tbody >
-          <tr *ngFor="let ed of eduDetails; let i = index;">
-            <td>{{1+i}}</td>
-            <td><input type='text' value='{{ed.cn}}'/></td>
-            <td><input type='text' value='{{ed.in}}' /></td>
-            <td><input class="yp-input" type='text' value='{{ed.yp}}' /></td>
-            <td><span class="action" (click)=deleteEduDetail(i)>Delete</span></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="edu-details-footer"><span class="action" (click)=addEduDetail()>Add</span></div>
+          <tbody formArrayName="eduDetails" >
+            <tr *ngFor="let ed of eduDetails.controls; let i = index;" [formGroupName]="i">
+              <td>{{1+i}}</td>
+              <td><input type='text' formControlName="cn"/></td>
+              <td><input type='text' formControlName="in"/></td>
+              <td><input class="yp-input" type='text' formControlName="yp"/></td>
+              <td><span class="action" (click)=deleteEduDetail(i)>Delete</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="edu-details-footer"><span class="action" (click)=addEduDetail()>Add Educational Details</span></div>
 
-      <table class='content section'>
-        <tbody>
-          <tr>
-            <td class='bullet'>HOBBIES:</td>
-            <td class='bullet-val'><input type='text' /></td>
-          </tr>
-        </tbody>
-      </table>
+        <table class='content section'>
+          <tbody>
+            <tr>
+              <td class='bullet'>HOBBIES:</td>
+              <td class='bullet-val'><input type='text' /></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </form>
     </div>
+
   </div>
 </div>

@@ -1,19 +1,73 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
+
+import { ResumeData, EduDetails, WorkDetails, defaultResumeData } from '../data-model';
 
 @Component({
   selector: 'app-resume-form',
   templateUrl: './resume-form.component.html',
   styleUrls: ['./resume-form.component.css']
 })
-export class ResumeFormComponent implements OnInit {
+export class ResumeFormComponent implements OnChanges {
+  resumeData: ResumeData;
+  resumeForm: FormGroup;
 
   updatedOnDate = new Date().toDateString();
 
-  eduDetails = [
-    {cn:"SSC", in:"Modern High School", yp:"2002"},
-    {cn:"Diploma", in:"AISSMS Polytechnic", yp:"2005"}
-  ];
-  constructor() { }
+  ngOnChanges() {
+    this.rebuildForm();
+  }
+
+  constructor(private fb: FormBuilder) {
+    this.resumeData = defaultResumeData;
+    this.createForm();
+    this.rebuildForm();
+  }
+
+  rebuildForm() {
+    this.resumeForm.reset({
+      name: this.resumeData.name
+    });
+    this.setEduDetails(this.resumeData.eduDetails);
+    this.setWorkDetails(this.resumeData.workDetails);
+  }
+
+  setEduDetails(eduDetails: EduDetails[]) {
+    const eduDetailsFGs = eduDetails.map(eduDetail => this.fb.group(eduDetail));
+    const eduDetailsFormArray = this.fb.array(eduDetailsFGs);
+    this.resumeForm.setControl('eduDetails', eduDetailsFormArray);
+  }
+
+  setWorkDetails(workDetails: WorkDetails[]) {
+    const workDetailsFGs = workDetails.map(workDetail => this.fb.group(workDetail));
+    const workDetailsFormArray = this.fb.array(workDetailsFGs);
+    this.resumeForm.setControl('workDetails', workDetailsFormArray);
+  }
+
+  get eduDetails(): FormArray {
+    return this.resumeForm.get('eduDetails') as FormArray;
+  };
+
+  get workDetails(): FormArray {
+    return this.resumeForm.get('workDetails') as FormArray;
+  };
+
+  createForm() {
+    this.resumeForm = this.fb.group({
+      empId: ['', Validators.required ],
+      name: ['', Validators.required ], // <--- the FormControl called "name"
+      email: ['', Validators.required ],
+      texp: ['', Validators.required ],
+      skills: ['', Validators.required ],
+      lang: ['', Validators.required ],
+      os: ['', Validators.required ],
+      dbs: ['', Validators.required ],
+      tools: ['', Validators.required ],
+      workDetails: this.fb.array([]),
+      eduDetails: this.fb.array([]),
+      hobbies: ''
+    });
+  }
 
   ngOnInit() {
   }
@@ -22,11 +76,16 @@ export class ResumeFormComponent implements OnInit {
 
   }
 
-  deleteEduDetail(index) {
-    this.eduDetails.splice(index, 1);
+  addEduDetail() {
+    this.eduDetails.push(this.fb.group(new EduDetails()));
   }
 
-  addEduDetail() {
-    this.eduDetails.push({cn:"", in:"", yp:""});
+  deleteEduDetail(index) {
+    debugger;
+    this.eduDetails.controls.splice(index, 1);
+  }
+
+  addworkDetail() {
+    this.workDetails.push(this.fb.group(new WorkDetails()));
   }
 }
