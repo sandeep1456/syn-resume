@@ -56,44 +56,51 @@
         </table>
 
         <div class='bullet section'>EXPERIENCE DETAILS:</div>
-
+        <div class="work-details-footer"><span class="action btn" (click)=addworkDetail()>Add Work Experience</span></div>
         <div formArrayName="workDetails">
-          <table class='exp-details' *ngFor="let wd of workDetails.controls; let i=index" [formGroupName]="i">
-            <tbody>
-              <tr>
-                <td class='bullet'>Company:</td>
-                <td class='bullet-val'><input type='text' formControlName="cn"/></td>
-              </tr>
-              <tr>
-                <td class='bullet'>Project:</td>
-                <td class='bullet-val'><input type='text' formControlName="pn" /></td>
-              </tr>
-              <tr>
-                <td class='bullet'>Technology/Tools used:</td>
-                <td class='bullet-val'><input type='text'  formControlName="tu"/></td>
-              </tr>
-              <tr>
-                <td class='bullet'>Duration:</td>
-                <td class='bullet-val'><input type='text' formControlName="dur" /> years</td>
-              </tr>
-              <tr>
-                <td class='bullet'>Role/Designation:</td>
-                <td class='bullet-val'><input type='text' formControlName="role" /></td>
-              </tr>
-              <tr>
-                <td class='bullet'>Brief Profile:</td>
-                <td class='bullet-val'><textarea formControlName="bp"></textarea></td>
-              </tr>
-              <tr>
-                <td class='bullet'>Responsibility:</td>
-                <td class='bullet-val'><textarea  formControlName="rsp"></textarea></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="work-details-wrapper" *ngFor="let wd of workDetails.controls; let i=index" [formGroupName]="i">
+            <div class="work-details-actions">
+              <span class="action" (click)=deleteWorkDetail(i)>Delete</span>
+            </div>
+            <table class='exp-details' >
+              <tbody>
+                <tr>
+                  <td class='bullet'>Company:</td>
+                  <td class='bullet-val'><input type='text' formControlName="cn"/></td>
+                </tr>
+                <tr>
+                  <td class='bullet'>Project:</td>
+                  <td class='bullet-val'><input type='text' formControlName="pn" /></td>
+                </tr>
+                <tr>
+                  <td class='bullet'>Technology/Tools used:</td>
+                  <td class='bullet-val'><input type='text'  formControlName="tu"/></td>
+                </tr>
+                <tr>
+                  <td class='bullet'>Duration:</td>
+                  <td class='bullet-val'><input type='text' formControlName="dur" /> years</td>
+                </tr>
+                <tr>
+                  <td class='bullet'>Role/Designation:</td>
+                  <td class='bullet-val'><input type='text' formControlName="role" /></td>
+                </tr>
+                <tr>
+                  <td class='bullet'>Brief Profile:</td>
+                  <td class='bullet-val'><textarea formControlName="bp"></textarea></td>
+                </tr>
+                <tr>
+                  <td class='bullet'>Responsibility:</td>
+                  <td class='bullet-val'><textarea  formControlName="rsp"></textarea></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="work-details-footer"><span class="action" (click)=addworkDetail()>Add Work Experience</span></div>
+
 
         <div class='bullet section'>EDUCATIONAL QUALIFICATION:</div>
+        <div class="edu-details-footer"><span class="action btn" (click)=addEduDetail()>Add Educational Details</span></div>
+
         <table class='edu-details'>
           <thead>
             <tr>
@@ -115,7 +122,6 @@
             </tr>
           </tbody>
         </table>
-        <div class="edu-details-footer"><span class="action" (click)=addEduDetail()>Add Educational Details</span></div>
 
         <table class='content section'>
           <tbody>

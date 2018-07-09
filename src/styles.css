@@ -129,3 +129,35 @@ span.action{
   font-size: 12px;
   font-weight: bold;
 }
+
+span.btn {
+  border: 1px solid rgb(0, 97, 213);
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.work-details-wrapper {
+  margin-top: 20px;
+  position: relative;
+  border: 1px solid #EEE;
+  padding: 10px;
+}
+
+.work-details-actions {
+  top: 0;
+  width: 10%;
+  float: right;
+  background: #FAFAFA;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.exp-details {
+  width: 90%;
+  margin: 0;
+}
+
+.work-details-actions span {
+  padding: 10px;
+}

@@ -81,11 +81,14 @@ export class ResumeFormComponent implements OnChanges {
   }
 
   deleteEduDetail(index) {
-    debugger;
     this.eduDetails.controls.splice(index, 1);
   }
 
   addworkDetail() {
-    this.workDetails.push(this.fb.group(new WorkDetails()));
+    this.workDetails.controls.unshift(this.fb.group(new WorkDetails()));
+  }
+
+  deleteWorkDetail(index) {
+    this.workDetails.controls.splice(index, 1);
   }
 }
