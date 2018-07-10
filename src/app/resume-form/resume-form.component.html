@@ -9,10 +9,6 @@
     </div>
     <div class='content-wrapper'>
       <div class='date'>Date: {{updatedOnDate}}</div>
-
-<p>Form value: {{ resumeForm.value | json }}</p>
-<p>Form status: {{ resumeForm.status | json }}</p>
-
       <form [formGroup]="resumeForm">
         <table class='content'>
           <tbody>
@@ -60,7 +56,7 @@
         <div formArrayName="workDetails">
           <div class="work-details-wrapper" *ngFor="let wd of workDetails.controls; let i=index" [formGroupName]="i">
             <div class="work-details-actions">
-              <span class="action" (click)=deleteWorkDetail(i)>Delete</span>
+              <span class="action" (click)=deleteWorkDetail(i)>x</span>
             </div>
             <table class='exp-details' >
               <tbody>
@@ -118,7 +114,11 @@
               <td><input type='text' formControlName="cn"/></td>
               <td><input type='text' formControlName="in"/></td>
               <td><input class="yp-input" type='text' formControlName="yp"/></td>
-              <td><span class="action" (click)=deleteEduDetail(i)>Delete</span></td>
+              <td>
+                <span class="action" (click)=deleteEduDetail(i) title="Delete">x</span>
+                <span class="action" (click)=moveEduDetailUp(i) title="Move Up">^</span>
+                <span class="action" (click)=moveEduDetailDown(i) title="Move Down">v</span>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -137,3 +137,6 @@
 
   </div>
 </div>
+
+    <p>Form value: {{ resumeForm.value | json }}</p>
+    <p>Form status: {{ resumeForm.status | json }}</p>

@@ -84,6 +84,24 @@ export class ResumeFormComponent implements OnChanges {
     this.eduDetails.controls.splice(index, 1);
   }
 
+  moveEduDetailUp(index) {
+    let eduArr = this.eduDetails.controls;
+    if(index!==0) {
+      let tmp = eduArr[index-1];
+      eduArr[index-1] = eduArr[index];
+      eduArr[index] = tmp;
+    }
+  }
+
+  moveEduDetailDown(index) {
+    let eduArr = this.eduDetails.controls;
+    if(index!==eduArr.length-1) {
+      let tmp = eduArr[index+1];
+      eduArr[index+1] = eduArr[index];
+      eduArr[index] = tmp;
+    }
+  }
+
   addworkDetail() {
     this.workDetails.controls.unshift(this.fb.group(new WorkDetails()));
   }
