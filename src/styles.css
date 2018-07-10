@@ -152,20 +152,22 @@ span.btn {
 
 .work-details-actions {
   top: 0;
-  width: 10%;
+  width: 40px;
   float: right;
   background: #FAFAFA;
   position: absolute;
   right: 0;
   bottom: 0;
+  text-align: center;
+  padding-top: 5px;
 }
 
 .exp-details {
-  width: 90%;
+  width: calc(100% - 50px);
   margin: 0;
 }
-/*
+
 .work-details-actions span {
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
 }
-*/

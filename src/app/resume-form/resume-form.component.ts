@@ -84,21 +84,21 @@ export class ResumeFormComponent implements OnChanges {
     this.eduDetails.controls.splice(index, 1);
   }
 
-  moveEduDetailUp(index) {
-    let eduArr = this.eduDetails.controls;
-    if(index!==0) {
-      let tmp = eduArr[index-1];
-      eduArr[index-1] = eduArr[index];
-      eduArr[index] = tmp;
-    }
+  moveEduDetail(index, dir) {
+    this.moveRows(this.eduDetails.controls, index , dir);
   }
 
-  moveEduDetailDown(index) {
-    let eduArr = this.eduDetails.controls;
-    if(index!==eduArr.length-1) {
-      let tmp = eduArr[index+1];
-      eduArr[index+1] = eduArr[index];
-      eduArr[index] = tmp;
+  moveWorkDetail(index, dir) {
+    this.moveRows(this.workDetails.controls, index , dir);
+  }
+
+  moveRows(arr, index, dir) {
+    let validMove = dir==='up' ? index!==0 : index!==arr.length-1;
+    let offset = dir==='up' ? -1 : 1;
+    if(validMove) {
+      let tmp = arr[index+offset];
+      arr[index+offset] = arr[index];
+      arr[index] = tmp;
     }
   }
 
