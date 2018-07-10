@@ -105,6 +105,8 @@ td.bullet-val {
 input, textarea {
   border-width: 0 0 1px 0;
   border-color: #CCC;
+  font-family: "Times New Roman, Arial";
+  font-size: 14px;
 }
 
 .bullet-val input,
@@ -130,7 +132,7 @@ span.action {
   font-weight: bold;
   border: 1px solid rgb(0, 97, 213);
   border-radius: 4px;
-  padding: 3px;
+  padding: 4px 4px 3px 4px;
   line-height: 12px;
   width: 12px;
   text-align: center;
@@ -155,7 +157,7 @@ span.btn {
   position: absolute;
   width: 0;
 	height: 0;
-  left: 3px;
+  left: 4px;
   top: 4px;
 	border-left: 6px solid transparent;
 	border-right: 6px solid transparent;
@@ -165,6 +167,7 @@ span.btn {
 .action.down:after{
   border-bottom: 0;
 	border-top: 10px solid rgb(0, 97, 213);
+  top: 5px;
 }
 
 .action.delete {
@@ -190,18 +193,11 @@ span.btn {
   padding-top: 5px;
 }
 
-.exp-details {
+app-resume-form .exp-details {
   width: calc(100% - 50px);
   margin: 0;
 }
 
 .work-details-actions span {
   margin: 5px;
-  padding: 5px;
-}
-
-.work-details-actions .action.up:after,
-.work-details-actions .action.down:after{
-  left: 5px;
-  top: 6px;
 }

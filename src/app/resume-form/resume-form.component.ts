@@ -25,9 +25,7 @@ export class ResumeFormComponent implements OnChanges {
   }
 
   rebuildForm() {
-    this.resumeForm.reset({
-      name: this.resumeData.name
-    });
+    this.resumeForm.reset(this.resumeData);
     this.setEduDetails(this.resumeData.eduDetails);
     this.setWorkDetails(this.resumeData.workDetails);
   }
@@ -109,4 +107,5 @@ export class ResumeFormComponent implements OnChanges {
   deleteWorkDetail(index) {
     this.workDetails.controls.splice(index, 1);
   }
+
 }
