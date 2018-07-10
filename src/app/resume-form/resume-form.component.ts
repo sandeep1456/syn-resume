@@ -71,11 +71,12 @@ export class ResumeFormComponent implements OnChanges {
   }
 
   save() {
+    console.log(this.resumeForm.status);
     console.log(this.resumeForm.value);
   }
 
   addEduDetail() {
-    this.eduDetails.insert(0,this.fb.group(new EduDetails()));
+    this.eduDetails.insert(0, this.fb.group(new EduDetails()));
   }
 
   deleteEduDetail(index) {
@@ -91,20 +92,20 @@ export class ResumeFormComponent implements OnChanges {
   }
 
   moveEduDetail(index, dir) {
-    this.moveRows(this.eduDetails.controls, index , dir);
+    this.moveRows(this.eduDetails, index , dir);
   }
 
   moveWorkDetail(index, dir) {
-    this.moveRows(this.workDetails.controls, index , dir);
+    this.moveRows(this.workDetails, index , dir);
   }
 
-  moveRows(arr, index, dir) {
-    let validMove = dir==='up' ? index!==0 : index!==arr.length-1;
+  moveRows(formArr, index, dir) {
+    let validMove = dir==='up' ? index!==0 : index!==formArr.controls.length-1;
     let offset = dir==='up' ? -1 : 1;
     if(validMove) {
-      let tmp = arr[index+offset];
-      arr[index+offset] = arr[index];
-      arr[index] = tmp;
+      let currentFA = formArr.at(index);
+      formArr.removeAt(index);
+      formArr.insert(index+offset, currentFA);
     }
   }
 }
