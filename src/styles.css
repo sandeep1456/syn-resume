@@ -86,7 +86,7 @@ td.bullet-val {
 .actions button,
 .actions a {
   border: 1px solid #bdc3c7;
-  border-radius: 2px;
+  border-radius: 4px;
   background-color: rgb(0, 97, 213);
   border-color: rgb(0, 97, 213);
   color: #fff;

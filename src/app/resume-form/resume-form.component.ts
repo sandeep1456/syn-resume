@@ -71,15 +71,23 @@ export class ResumeFormComponent implements OnChanges {
   }
 
   save() {
-
+    console.log(this.resumeForm.value);
   }
 
   addEduDetail() {
-    this.eduDetails.push(this.fb.group(new EduDetails()));
+    this.eduDetails.insert(0,this.fb.group(new EduDetails()));
   }
 
   deleteEduDetail(index) {
-    this.eduDetails.controls.splice(index, 1);
+    this.eduDetails.removeAt(index);
+  }
+
+  addworkDetail() {
+    this.workDetails.insert(0, this.fb.group(new WorkDetails()));
+  }
+
+  deleteWorkDetail(index) {
+    this.workDetails.removeAt(index);
   }
 
   moveEduDetail(index, dir) {
@@ -99,13 +107,4 @@ export class ResumeFormComponent implements OnChanges {
       arr[index] = tmp;
     }
   }
-
-  addworkDetail() {
-    this.workDetails.controls.unshift(this.fb.group(new WorkDetails()));
-  }
-
-  deleteWorkDetail(index) {
-    this.workDetails.controls.splice(index, 1);
-  }
-
 }
