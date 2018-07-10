@@ -122,7 +122,7 @@ input, textarea {
   width: 80px;
 }
 
-span.action{
+span.action {
   font-family: Arial;
   cursor:pointer;
   color: rgb(0, 97, 213);
@@ -130,17 +130,45 @@ span.action{
   font-weight: bold;
   border: 1px solid rgb(0, 97, 213);
   border-radius: 4px;
-  padding: 2px;
+  padding: 3px;
   line-height: 12px;
   width: 12px;
   text-align: center;
   display: inline-block;
   margin-left: 5px;
+  position: relative;
+  height: 12px;
+}
+
+td .action {
+  float: left;
 }
 
 span.btn {
   width: auto;
   padding: 5px;
+}
+
+.action.up:after,
+.action.down:after{
+  content: "";
+  position: absolute;
+  width: 0;
+	height: 0;
+  left: 3px;
+  top: 4px;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-bottom: 10px solid rgb(0, 97, 213);
+}
+
+.action.down:after{
+  border-bottom: 0;
+	border-top: 10px solid rgb(0, 97, 213);
+}
+
+.action.delete {
+  font-weight: 900;
 }
 
 .work-details-wrapper {
@@ -170,4 +198,10 @@ span.btn {
 .work-details-actions span {
   margin: 5px;
   padding: 5px;
+}
+
+.work-details-actions .action.up:after,
+.work-details-actions .action.down:after{
+  left: 5px;
+  top: 6px;
 }

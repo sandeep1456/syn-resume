@@ -56,9 +56,9 @@
         <div formArrayName="workDetails">
           <div class="work-details-wrapper" *ngFor="let wd of workDetails.controls; let i=index" [formGroupName]="i">
             <div class="work-details-actions">
-              <span class="action" (click)=deleteWorkDetail(i) title="Delete">x</span>
-              <span class="action" (click)="moveWorkDetail(i, 'up')" title="Move Up">^</span>
-              <span class="action" (click)="moveWorkDetail(i, 'down')" title="Move Down">v</span>
+              <span class="action delete" (click)=deleteWorkDetail(i) title="Delete">X</span>
+              <span class="action up" (click)="moveWorkDetail(i, 'up')" title="Move Up"></span>
+              <span class="action down" (click)="moveWorkDetail(i, 'down')" title="Move Down"></span>
             </div>
             <table class='exp-details' >
               <tbody>
@@ -117,9 +117,9 @@
               <td><input type='text' formControlName="in"/></td>
               <td><input class="yp-input" type='text' formControlName="yp"/></td>
               <td>
-                <span class="action" (click)=deleteEduDetail(i) title="Delete">x</span>
-                <span class="action" (click)="moveEduDetail(i, 'up')" title="Move Up">^</span>
-                <span class="action" (click)="moveEduDetail(i, 'down')" title="Move Down">v</span>
+                <span class="action delete" (click)=deleteEduDetail(i) title="Delete">X</span>
+                <span class="action up" (click)="moveEduDetail(i, 'up')" title="Move Up"></span>
+                <span class="action down" (click)="moveEduDetail(i, 'down')" title="Move Down"></span>
               </td>
             </tr>
           </tbody>
