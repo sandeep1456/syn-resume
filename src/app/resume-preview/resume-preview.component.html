@@ -1,4 +1,8 @@
-<div class='cv-wrapper'>
+<div class='error-msg' *ngIf="!resumeData">
+  Resume data is not available, Please click <a routerLink="/update">here</a> to enter your details.
+</div>
+
+<div class='cv-wrapper' *ngIf="resumeData">
   <div class='actions'>
     <a routerLink="/update">Update</a>
     <button (click)="download()">Download</button>

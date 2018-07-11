@@ -13,7 +13,8 @@ export class ResumePreviewComponent implements OnInit {
   constructor(private resumeService: ResumeService) { }
 
   ngOnInit() {
-    this.resumeData = this.resumeService.getResume();
+    this.resumeService.getResume().
+    subscribe(data => this.resumeData = data);
   }
 
   download() {

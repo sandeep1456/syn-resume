@@ -49,8 +49,8 @@ body {
   background-color: #EEEEEE;
 }
 
-
-.cv-wrapper {
+.cv-wrapper,
+.error-msg {
     background-color: #FFFFFF;
     width: 816px;
     min-height: 1056px;
@@ -59,6 +59,12 @@ body {
     border: 0;
     margin: 30px auto;
     box-shadow: 0 0 0 1px #D1D1D1, 0 0 8px 3px #CCCCCC;
+}
+
+.error-msg {
+  min-height: 10px;
+	text-align: center;
+	padding: 30px;
 }
 
 .page {
