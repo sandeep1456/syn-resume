@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResumeService } from '../services/resume.service';
 
 @Component({
   selector: 'app-resume-preview',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumePreviewComponent implements OnInit {
 
-  constructor() { }
+  resumeData;
+
+  constructor(private resumeService: ResumeService) { }
 
   ngOnInit() {
+    this.resumeData = this.resumeService.getResume();
   }
 
   download() {

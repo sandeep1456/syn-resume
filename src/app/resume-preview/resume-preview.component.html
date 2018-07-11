@@ -15,110 +15,76 @@
         <tbody>
           <tr>
             <td class='bullet'>EMPLOYEE ID:</td>
-            <td class='bullet-val'>1456</td>
+            <td class='bullet-val'>{{resumeData.empId}}</td>
           </tr>
           <tr>
             <td class='bullet'>NAME:</td>
-            <td class='bullet-val'>Sandeep Rajendra Kamble</td>
+            <td class='bullet-val'>{{resumeData.name}}</td>
           </tr>
           <tr>
             <td class='bullet'>EMAIL ID:</td>
-            <td class='bullet-val'>sandeep.kamble@synerzip.com</td>
+            <td class='bullet-val'>{{resumeData.email}}</td>
           </tr>
           <tr>
             <td class='bullet'>TOTAL EXPERIENCE:</td>
-            <td class='bullet-val'>9.5 Years</td>
+            <td class='bullet-val'>{{resumeData.texp}} Years</td>
           </tr>
           <tr>
             <td class='bullet'>TECHNICAL SKILLS:</td>
-            <td class='bullet-val'>JS, jQuery, Backbone JS, Underscore JS, Require JS, Java, Spring, Hibernate</td>
+            <td class='bullet-val'>{{resumeData.skills}}</td>
           </tr>
           <tr>
             <td class='bullet'>LANGUAGES:</td>
-            <td class='bullet-val'>English, Hindi, Marathi</td>
+            <td class='bullet-val'>{{resumeData.lang}}</td>
           </tr>
           <tr>
             <td class='bullet'>OPERATING SYSTEMS:</td>
-            <td class='bullet-val'>Windows, CentOS</td>
+            <td class='bullet-val'>{{resumeData.os}}</td>
           </tr>
           <tr>
             <td class='bullet'>DATABASES:</td>
-            <td class='bullet-val'>MySQL, Mongo DB</td>
+            <td class='bullet-val'>{{resumeData.dbs}}</td>
           </tr>
           <tr>
             <td class='bullet'>COMPONENTS/TOOLS:</td>
-            <td class='bullet-val'>IntelliJ IDEA, Eclipse IDE, WebStrom IDE</td>
+            <td class='bullet-val'>{{resumeData.tools}}</td>
           </tr>
         </tbody>
       </table>
 
       <div class='bullet section'>EXPERIENCE DETAILS:</div>
-      <table class='exp-details'>
+      <table class='exp-details' *ngFor="let wd of resumeData.workDetails;">
         <tbody>
           <tr>
             <td class='bullet'>Company:</td>
-            <td class='bullet-val'>Synerzip</td>
+            <td class='bullet-val'>{{wd.cn}}</td>
           </tr>
           <tr>
             <td class='bullet'>Project:</td>
-            <td class='bullet-val'>Mercatus</td>
+            <td class='bullet-val'>{{wd.pn}}</td>
           </tr>
           <tr>
             <td class='bullet'>Technology/Tools used:</td>
-            <td class='bullet-val'>Backbone JS, Underscore JS, Require JS, jQuery, Java, Spring, Hibernate</td>
+            <td class='bullet-val'>{{wd.tu}}</td>
           </tr>
           <tr>
             <td class='bullet'>Duration:</td>
-            <td class='bullet-val'>5 years</td>
+            <td class='bullet-val'>{{wd.dur}} Years</td>
           </tr>
           <tr>
             <td class='bullet'>Role/Designation:</td>
-            <td class='bullet-val'>UI Lead</td>
+            <td class='bullet-val'>{{wd.role}}</td>
           </tr>
           <tr>
             <td class='bullet'>Brief Profile:</td>
-            <td class='bullet-val'>Single Page Web application for tracking solar power plants</td>
+            <td class='bullet-val'>{{wd.bp}}</td>
           </tr>
           <tr>
             <td class='bullet'>Responsibility:</td>
-            <td class='bullet-val'>Was involve in designing UI architecture, Responsible for converting wireframes (.png files) to HTML and applying CSS, adding JS functionality using JS framework BackBoneJS, UnderScoreJS and RequireJS</td>
+            <td class='bullet-val'>{{wd.rsp}}</td>
           </tr>
         </tbody>
       </table>
-
-      <table class='exp-details'>
-        <tbody>
-          <tr>
-            <td class='bullet'>Company:</td>
-            <td class='bullet-val'>Synerzip</td>
-          </tr>
-          <tr>
-            <td class='bullet'>Project:</td>
-            <td class='bullet-val'>Mercatus</td>
-          </tr>
-          <tr>
-            <td class='bullet'>Technology/Tools used:</td>
-            <td class='bullet-val'>Backbone JS, Underscore JS, Require JS, jQuery, Java, Spring, Hibernate</td>
-          </tr>
-          <tr>
-            <td class='bullet'>Duration:</td>
-            <td class='bullet-val'>5 years</td>
-          </tr>
-          <tr>
-            <td class='bullet'>Role/Designation:</td>
-            <td class='bullet-val'>UI Lead</td>
-          </tr>
-          <tr>
-            <td class='bullet'>Brief Profile:</td>
-            <td class='bullet-val'>Single Page Web application for tracking solar power plants</td>
-          </tr>
-          <tr>
-            <td class='bullet'>Responsibility:</td>
-            <td class='bullet-val'>Was involve in designing UI architecture, Responsible for converting wireframes (.png files) to HTML and applying CSS, adding JS functionality using JS framework BackBoneJS, UnderScoreJS and RequireJS</td>
-          </tr>
-        </tbody>
-      </table>
-
 
       <div class='bullet section'>EDUCATIONAL QUALIFICATION:</div>
       <table class='edu-details'>
@@ -132,23 +98,11 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>B.E. Computer</td>
-            <td>Maharashtra Institute of Technology, Pune</td>
-            <td>May 2008</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Diploma In Computer Engineering</td>
-            <td>A.I.S.S.M.S. Polytechnic, Pune</td>
-            <td>May 2005</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>SSC</td>
-            <td>Modern High School, Pune</td>
-            <td>March 2002</td>
+          <tr *ngFor="let ed of resumeData.eduDetails; let i=index;">
+            <td>{{i+1}}</td>
+            <td>{{ed.cn}}</td>
+            <td>{{ed.in}}</td>
+            <td>{{ed.yp}}</td>
           </tr>
         </tbody>
       </table>
@@ -157,7 +111,7 @@
         <tbody>
           <tr>
             <td class='bullet'>HOBBIES:</td>
-            <td class='bullet-val'>Playing cricket, Trekking, Listen to music</td>
+            <td class='bullet-val'>{{resumeData.hobbies}}</td>
           </tr>
         </tbody>
       </table>
