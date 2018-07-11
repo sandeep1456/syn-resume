@@ -35,8 +35,9 @@ export const defaultResumeData: ResumeData =
 */
 {
   id: 0,
-  name: '',
   empId: '',
+  updatedOn: null,
+  name: '',
   email: '',
   texp: '',
   skills: '',

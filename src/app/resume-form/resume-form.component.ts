@@ -12,8 +12,6 @@ export class ResumeFormComponent implements OnChanges {
   resumeData: ResumeData;
   resumeForm: FormGroup;
 
-  updatedOnDate = new Date().toDateString();
-
   ngOnChanges() {
     this.rebuildForm();
   }
@@ -72,7 +70,10 @@ export class ResumeFormComponent implements OnChanges {
 
   save() {
     console.log(this.resumeForm.status);
-    console.log(this.resumeForm.value);
+
+    let data = this.resumeForm.value;
+    data.updatedOn = new Date().getTime();
+    console.log(data);
   }
 
   addEduDetail() {
@@ -107,5 +108,18 @@ export class ResumeFormComponent implements OnChanges {
       formArr.removeAt(index);
       formArr.insert(index+offset, currentFA);
     }
+  }
+
+  formatDate(date) {
+    let dateStr = "";
+    if(date){
+      try {
+        let dt = new Date(date);
+        dateStr = (dt.getDate() < 10 ? "0" : "") + dt.getDate() + "/" +
+                (dt.getMonth() < 10 ? "0" : "") + dt.getMonth() + "/" +
+                dt.getFullYear();
+      } catch (e) { }
+    }
+    return dateStr;
   }
 }
