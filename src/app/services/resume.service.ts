@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { ResumeData } from '../data-model';
 
 @Injectable({
@@ -13,11 +13,29 @@ export class ResumeService {
   constructor(private http: HttpClient) { }
 
   getResume(empId): Observable<ResumeData> {
-    let url = this._getUrl + `?empId=${empId}`;
-    return this.http.get<ResumeData>(url);
-    // .pipe(
-    //   catchError(this.handleError('getResume', {}))
-    // );
+
+    let data:ResumeData;
+    if(localStorage.getItem(""+empId)) {
+      data = JSON.parse(localStorage.getItem(""+empId));
+      return new Observable<ResumeData>( observer => {
+        observer.next(data);
+        observer.complete();
+      });
+    } else {
+      let url = this._getUrl + `?empId=${empId}`;
+      return this.http.get<ResumeData>(url)
+      .pipe(
+        tap(data => {
+          console.log("Fetched", data);
+          localStorage.setItem(""+data.empId, JSON.stringify(data));
+        })
+      //   catchError(this.handleError('getResume', {}))
+      );
+    }
+  }
+
+  saveResume(data: ResumeData) {
+    localStorage.setItem(""+data.empId, JSON.stringify(data));
   }
 
   private handleError<T> (operation = 'operation', result?: T) {

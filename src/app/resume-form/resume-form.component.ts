@@ -3,6 +3,7 @@ import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ResumeData, EduDetails, WorkDetails, defaultResumeData } from '../data-model';
+import { ResumeService } from '../services/resume.service';
 
 @Component({
   selector: 'app-resume-form',
@@ -20,11 +21,23 @@ export class ResumeFormComponent implements OnChanges {
 
   constructor(private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private resumeService:ResumeService
   ) {
     this.empId = this.route.snapshot.paramMap.get("empId");
-    this.resumeData = defaultResumeData;
     this.createForm();
+    this.loadResume();
+  }
+
+  loadResume() {
+    let data = localStorage.getItem(""+this.empId);
+    if(data) {
+     this.resumeData = JSON.parse(data);
+    } else {
+      this.resumeData = defaultResumeData;
+      this.resumeData.empId = this.empId;
+    }
+
     this.rebuildForm();
   }
 
@@ -81,6 +94,8 @@ export class ResumeFormComponent implements OnChanges {
     data.updatedOn = new Date().getTime();
 
     //Save data
+    this.resumeService.saveResume(data);
+
     this.router.navigate(['/preview',this.empId]);
   }
 
