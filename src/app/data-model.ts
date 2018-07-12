@@ -1,9 +1,9 @@
 export class ResumeData {
   id = 0;
   name = '';
-  empId = '';
+  empId = 0;
   email = '';
-  texp = '';
+  texp = 0;
   skills = '';
   lang = '';
   os = '';
@@ -12,6 +12,7 @@ export class ResumeData {
   eduDetails : EduDetails[];
   workDetails : WorkDetails[];
   hobbies = '';
+  updatedOn = '';
 }
 
 export class EduDetails {
@@ -24,7 +25,7 @@ export class WorkDetails {
   cn = '';
   pn   = '';
   tu  = '';
-  dur  = '';
+  dur  = 0;
   role  = '';
   bp  = '';
   rsp  = '';
@@ -32,11 +33,11 @@ export class WorkDetails {
 
 export const defaultResumeData: ResumeData = {
   id: 0,
-  empId: '',
+  empId: 0,
   updatedOn: null,
   name: '',
   email: '',
-  texp: '',
+  texp: 0,
   skills: '',
   lang: '',
   os: '',
@@ -51,7 +52,7 @@ export const defaultResumeData: ResumeData = {
     cn: '',
     pn: '',
     tu: '',
-    dur: '',
+    dur: 0,
     role: '',
     bp: '',
     rsp: '',

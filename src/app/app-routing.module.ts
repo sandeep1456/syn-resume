@@ -5,9 +5,9 @@ import { ResumePreviewComponent } from './resume-preview/resume-preview.componen
 import { ResumeFormComponent } from './resume-form/resume-form.component';
 
 const routes: Routes = [
-  { path: 'preview', component: ResumePreviewComponent },
-  { path: 'update', component: ResumeFormComponent },
-  { path: '', redirectTo: '/preview', pathMatch: 'full' }
+  { path: 'preview/:empId', component: ResumePreviewComponent },
+  { path: 'update/:empId', component: ResumeFormComponent }//,
+  //{ path: '', redirectTo: '/preview/:empId', pathMatch: 'full' }
 ];
 
 @NgModule({

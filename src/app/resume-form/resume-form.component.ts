@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ResumeData, EduDetails, WorkDetails, defaultResumeData } from '../data-model';
 
@@ -11,12 +12,17 @@ import { ResumeData, EduDetails, WorkDetails, defaultResumeData } from '../data-
 export class ResumeFormComponent implements OnChanges {
   resumeData: ResumeData;
   resumeForm: FormGroup;
+  empId;
 
   ngOnChanges() {
     this.rebuildForm();
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.empId = this.route.snapshot.paramMap.get("empId");
     this.resumeData = defaultResumeData;
     this.createForm();
     this.rebuildForm();
@@ -73,7 +79,9 @@ export class ResumeFormComponent implements OnChanges {
 
     let data = this.resumeForm.value;
     data.updatedOn = new Date().getTime();
-    console.log(data);
+
+    //Save data
+    this.router.navigate(['/preview',this.empId]);
   }
 
   addEduDetail() {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ResumeService } from '../services/resume.service';
 
 @Component({
@@ -9,11 +10,17 @@ import { ResumeService } from '../services/resume.service';
 export class ResumePreviewComponent implements OnInit {
 
   resumeData;
+  empId;
 
-  constructor(private resumeService: ResumeService) { }
+  constructor(
+    private resumeService: ResumeService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.resumeService.getResume().
+    this.empId = this.route.snapshot.paramMap.get("empId");
+    this.resumeService.getResume(this.empId).
     subscribe(data => this.resumeData = data);
   }
 

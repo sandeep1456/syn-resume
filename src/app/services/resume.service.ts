@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ResumeData } from '../data-model';
 
@@ -12,11 +12,12 @@ export class ResumeService {
 
   constructor(private http: HttpClient) { }
 
-  getResume(): Observable<ResumeData> {
-    return this.http.get<ResumeData>(this._getUrl)
-    .pipe(
-      catchError(this.handleError('getResume', {}))
-    );
+  getResume(empId): Observable<ResumeData> {
+    let url = this._getUrl + `?empId=${empId}`;
+    return this.http.get<ResumeData>(url);
+    // .pipe(
+    //   catchError(this.handleError('getResume', {}))
+    // );
   }
 
   private handleError<T> (operation = 'operation', result?: T) {

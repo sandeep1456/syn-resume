@@ -1,8 +1,9 @@
 {
-  "empId": "1456",
+  "id": 0,
+  "empId": 1456,
   "name": "Sandeep Rajendra Kamble",
   "email": "sandeep.kamble@synerzip.com",
-  "texp": "9.5",
+  "texp": 9.5,
   "skills": "JS, jQuery, Backbone JS, Underscore JS, Require JS, Java, Spring, Hibernate",
   "lang": "English, Hindi, Marathi",
   "os": "Windows, CentOS",
@@ -18,7 +19,7 @@
     {
       "bp": "Single Page Web application for tracking solar power plants",
       "cn": "Synerzip",
-      "dur": "5",
+      "dur": 5,
       "pn": "Mercatus",
       "role": "UI Lead",
       "rsp": "Was involve in designing UI architecture, Responsible for converting wireframes (.png files) to HTML and applying CSS, adding JS functionality using JS framework BackBoneJS, UnderScoreJS and RequireJS",
@@ -27,7 +28,7 @@
     {
       "bp": "Social Networking webapp, Designed as Single Page webapp",
       "cn": "Synerzip",
-      "dur": "1",
+      "dur": 1,
       "pn": "EveryLog",
       "role": "UI developer",
       "rsp": "Handled all UI development alone using JS framework BackBoneJS, UnderScoreJS and RequireJS. Was responsible for converting wireframes (.png files) to HTML",
@@ -36,7 +37,7 @@
     {
       "bp": "A complete Inventory management project developed for Starbucks coffee",
       "cn": "Krawler Networks",
-      "dur": "2",
+      "dur": 2,
       "pn": "Inventory System",
       "role": "Software developer",
       "rsp": "Responsible for delivering end to end module, designed using ExtJS for UI screen and Java for backend services",
@@ -45,7 +46,7 @@
     {
       "bp": "Accounting lets you create invoices and purchase orders, manages receipt, journal transactions and tracks your income and expenses",
       "cn": "Krawler Networks",
-      "dur": "1",
+      "dur": 1,
       "pn": "Accounting System",
       "role": "Software developer",
       "rsp": "Responsible for delivering end to end module, designed using ExtJS for UI screen and Java for backend services",
