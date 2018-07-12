@@ -8,7 +8,7 @@
       <div>Curriculum Vitae</div>
     </div>
     <div class='content-wrapper'>
-      <div class='date' *ngIf="resumeData.updatedOn">Last modified on: {{formatDate(resumeData.updatedOn)}}</div>
+      <div class='date' *ngIf="resumeData.updatedOn">Last modified on: {{formatResumeDate(resumeData.updatedOn)}}</div>
       <form [formGroup]="resumeForm">
         <table class='content'>
           <tbody>

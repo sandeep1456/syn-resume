@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ResumeService } from '../services/resume.service';
+import { formatDate } from '../resume-utils';
 
 @Component({
   selector: 'app-resume-preview',
@@ -24,8 +25,11 @@ export class ResumePreviewComponent implements OnInit {
     subscribe(data => this.resumeData = data);
   }
 
+  formatResumeDate(date) {
+    return formatDate(date);
+  }
+
   download() {
     alert("download");
   }
-
 }

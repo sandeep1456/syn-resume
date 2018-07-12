@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ResumeData, EduDetails, WorkDetails, defaultResumeData } from '../data-model';
 import { ResumeService } from '../services/resume.service';
+import { formatDate } from '../resume-utils';
 
 @Component({
   selector: 'app-resume-form',
@@ -133,16 +134,7 @@ export class ResumeFormComponent implements OnChanges {
     }
   }
 
-  formatDate(date) {
-    let dateStr = "";
-    if(date){
-      try {
-        let dt = new Date(date);
-        dateStr = (dt.getDate() < 10 ? "0" : "") + dt.getDate() + "/" +
-                (dt.getMonth() < 10 ? "0" : "") + dt.getMonth() + "/" +
-                dt.getFullYear();
-      } catch (e) { }
-    }
-    return dateStr;
+  formatResumeDate(date) {
+    return formatDate(date);
   }
 }
