@@ -9,7 +9,7 @@ import { formatDate } from '../resume-utils';
   styleUrls: ['./resume-preview.component.css']
 })
 export class ResumePreviewComponent implements OnInit {
-
+  today = new Date().getTime();
   resumeData;
   empId;
 

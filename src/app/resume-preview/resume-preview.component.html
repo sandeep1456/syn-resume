@@ -13,7 +13,7 @@
       <div>Curriculum Vitae</div>
     </div>
     <div class='content-wrapper'>
-      <div class='date'>Date: {{formatResumeDate(resumeData.updatedOn)}}</div>
+      <div class='date'>Date: {{formatResumeDate(today)}}</div>
 
       <table class='content'>
         <tbody>
@@ -31,7 +31,7 @@
           </tr>
           <tr>
             <td class='bullet'>TOTAL EXPERIENCE:</td>
-            <td class='bullet-val'>{{resumeData.texp}} Years</td>
+            <td class='bullet-val'>{{resumeData.texp}}</td>
           </tr>
           <tr>
             <td class='bullet'>TECHNICAL SKILLS:</td>
@@ -73,7 +73,7 @@
           </tr>
           <tr>
             <td class='bullet'>Duration:</td>
-            <td class='bullet-val'>{{wd.dur}} Years</td>
+            <td class='bullet-val'>{{wd.dur}}</td>
           </tr>
           <tr>
             <td class='bullet'>Role/Designation:</td>

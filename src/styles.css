@@ -164,7 +164,7 @@ input, textarea {
 
 .bullet-val input,
 .bullet-val textarea {
-  width: calc(100% - 50px);
+  width: 100%;
 }
 
 .edu-details-footer,
@@ -174,7 +174,7 @@ input, textarea {
 }
 
 .yp-input {
-  width: 80px;
+  width: 90px;
 }
 
 span.action {

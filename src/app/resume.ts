@@ -3,7 +3,7 @@ export class Resume {
   name: string;
   empId: number;
   email: string;
-  texp: number;
+  texp: string;
   skills: string;
   lang: string;
   os: string;
@@ -25,7 +25,7 @@ export class WorkDetails {
   cn: string;
   pn: string;
   tu: string;
-  dur: number;
+  dur: string;
   role: string;
   bp: string;
   rsp: string;
