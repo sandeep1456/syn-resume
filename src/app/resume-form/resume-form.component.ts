@@ -95,6 +95,11 @@ export class ResumeFormComponent implements OnChanges {
     data.updatedOn = new Date().getTime();
 
     //Save data
+    let dbObject = {
+      epmId: data.empId,
+      cvDetails: JSON.stringify(data)
+    }
+    console.log(dbObject);
     this.resumeService.saveResume(data);
 
     this.router.navigate(['/preview',this.empId]);

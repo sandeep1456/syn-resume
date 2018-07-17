@@ -3,7 +3,7 @@ export class ResumeData {
   name = '';
   empId = 0;
   email = '';
-  texp = 0;
+  texp = '';
   skills = '';
   lang = '';
   os = '';
@@ -25,7 +25,7 @@ export class WorkDetails {
   cn = '';
   pn   = '';
   tu  = '';
-  dur  = 0;
+  dur  = '';
   role  = '';
   bp  = '';
   rsp  = '';
