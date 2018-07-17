@@ -15,13 +15,7 @@ export class ResumeService {
   getResume(empId): Observable<ResumeData> {
 
     let data:ResumeData;
-    if(localStorage.getItem(""+empId)) {
-      data = JSON.parse(localStorage.getItem(""+empId));
-      return new Observable<ResumeData>( observer => {
-        observer.next(data);
-        observer.complete();
-      });
-    } else {
+    if(empId == '1456') {
       let url = this._getUrl + `?empId=${empId}`;
       return this.http.get<ResumeData>(url)
       .pipe(
@@ -31,6 +25,14 @@ export class ResumeService {
         })
       //   catchError(this.handleError('getResume', {}))
       );
+    } else {
+      if(localStorage.getItem(""+empId)) {
+        data = JSON.parse(localStorage.getItem(""+empId));
+      }
+      return new Observable<ResumeData>( observer => {
+        observer.next(data);
+        observer.complete();
+      });
     }
   }
 

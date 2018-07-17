@@ -41,14 +41,12 @@ export class ResumePreviewComponent implements OnInit {
         width: 595
     };
     pdf.addHTML(
-     		document.getElementById('main-resume'), 0, 0,
-     		{pagesplit:true},
-     		function() {
-     			pdf.save(pdfName);
-      	},
-      	margins
-     	);
-    }
+   		document.getElementById('main-resume'), 0, 0,
+   		{pagesplit:true},
+   		function() {
+   			pdf.save(pdfName);
+    	},
+    	margins
+   	);
   }
-
 }
