@@ -15,7 +15,7 @@ export class ResumeService {
   getResume(empId): Observable<ResumeData> {
 
     let data:ResumeData;
-    if(empId == '1456') {
+    if(empId == '1456' && !localStorage.getItem(""+empId)) {
       let url = this._getUrl + `?empId=${empId}`;
       return this.http.get<ResumeData>(url)
       .pipe(
